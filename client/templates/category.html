@@ -1,0 +1,20 @@
+<template name="category">
+  <div class="col-md-4 max-height">
+    <div class="panel panel-{{panelStyle .}}">
+      <div class="panel-heading">
+        <h4>{{.}}</h4>
+        <span class="pull-right">
+          <span class="badge">{{count}}</span>
+          <button class="btn btn-default btn-xs new-post-btn">
+            <i class="glyphicon glyphicon-plus"></i>
+          </button>
+        </span>
+      </div> 
+    </div>
+    <ul id="{{.}}" class="list-unstyled sortable max-height">
+      {{#each posts}}
+        {{>post}}
+      {{/each}}
+    </ul>
+  </div>
+</template>
