@@ -28,19 +28,6 @@ Template.post.events
         currently_editing.push(@_id)
         SessionAmplify.set 'currently_editing', currently_editing
 
-  'keyup textarea': (e,t)->
-    post_id = @_id
-    if not window.autosaves
-      window.autosaves = {}
-    clearTimeout(window.autosaves[post_id])
-    window.autosaves[post_id] = setTimeout ->
-      draft = t.find('textarea')?.value
-      if draft
-        Meteor.call 'updateDraft', post_id, draft, (err,res)->
-          if err
-            console.log err
-    , 500
-
 Template.post.helpers
 
   displayPost: ->
