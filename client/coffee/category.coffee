@@ -15,5 +15,5 @@ Template.category.helpers
       sort: rank: 1
   title: ->
     @type.charAt(0).toUpperCase() + @type.slice(1)
-  count: ->
-    Posts.find(type: @type, content: $ne: null).count()
+  count: (type)->
+    Posts.find(type: type, content: $ne: null).count()
