@@ -1,25 +1,31 @@
+hooksObject =
+  onSuccess: (formType, result)->
+    currently_editing = SessionAmplify.get 'currently_editing'
+    currently_editing.splice currently_editing.indexOf(result), 1
+    SessionAmplify.set 'currently_editing', currently_editing
+
+AutoForm.addHooks(null, hooksObject)
+
 Template.post.events
 
-  'click .save-post-btn': (e,t)->
-    content = t.find('textarea').value
-    if content.trim().length > 0
-      Meteor.call 'updatePost', @_id, content, (err,res)->
-        if err
-          console.log err
-        currently_editing = SessionAmplify.get 'currently_editing'
-        currently_editing.splice currently_editing.indexOf(@_id), 1
-        SessionAmplify.set 'currently_editing', currently_editing
-    else
-      Meteor.call 'removePost', @_id
+  'click .delete-post-btn': (e,t)->
+    e.preventDefault()
+    doc =
+      $set: content: ''
+    Meteor.call 'updatePost', doc, @_id
+    currently_editing = SessionAmplify.get('currently_editing')
+    currently_editing.splice currently_editing.indexOf(@_id), 1
+    SessionAmplify.set 'currently_editing', currently_editing
 
   'click .cancel-post-btn': (e,t)->
+    e.preventDefault()
     if not @content
-      Meteor.call 'removePost', @_id
-    else
-      currently_editing = SessionAmplify.get('currently_editing')
-      currently_editing.splice currently_editing.indexOf(@_id), 1
-      SessionAmplify.set 'currently_editing', currently_editing
-      Meteor.call 'updateDraft', @_id, @content
+      doc =
+        $set: content: @content
+      Meteor.call 'updatePost', doc, @_id
+    currently_editing = SessionAmplify.get('currently_editing')
+    currently_editing.splice currently_editing.indexOf(@_id), 1
+    SessionAmplify.set 'currently_editing', currently_editing
 
   'click p': (e,t)->
     currently_editing = SessionAmplify.get('currently_editing')
@@ -40,9 +46,6 @@ Template.post.helpers
       return true
     return SessionAmplify.get('currently_editing').indexOf(@_id) > -1
 
-  editContent: ->
-    Posts.findOne({_id: @_id}, {reactive: false}).draft
-
   notMyPost: ->
     @user_id != SessionAmplify.get 'current_user'
 
@@ -51,7 +54,7 @@ Template.post.helpers
 
   rows: ->
     post = Posts.findOne(
-      {_id: @_id}, {reactive: false}).draft?.split('\n')?.length
+      {_id: @_id}, {reactive: false}).content?.split('\n')?.length
     if post
       return post
     return 1

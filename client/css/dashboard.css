@@ -3,6 +3,7 @@ body { margin-top: 20px; }
 .panel-heading h4 { display: inline !important; }
 .post .panel-heading i { right: -10px; top: -6px; }
 .post .panel-body { padding: 0; }
-.post textarea { border-radius: 0; resize: none; width: 100%; border: 0; padding: 10px; padding-top: 7px; outline: none }
+.post textarea { border-radius: 0; resize: none; box-shadow: none; width: 100%; border: 0 !important; padding: 10px; padding-top: 7px; outline: none }
+.post textarea:focus { border: 0; box-shadow: none; }
 .post p { white-space: pre-wrap; margin: 0; padding: 10px; }
 .sortablePlaceholder { background-color: #eee; margin-bottom: 22px; border-radius: 4px; }

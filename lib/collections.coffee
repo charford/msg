@@ -17,8 +17,8 @@
   content:
     type: String
     optional: true
-  draft:
-    type: String
-    optional: true
+    autoform:
+      afFormGroup:
+        label: false
 @Boards.attachSchema @Schemas.Board
 @Posts.attachSchema @Schemas.Post
