@@ -7,3 +7,7 @@ body { margin-top: 20px; }
 .post textarea:focus { border: 0; box-shadow: none; }
 .post p { white-space: pre-wrap; margin: 0; padding: 10px; }
 .sortablePlaceholder { background-color: #eee; margin-bottom: 22px; border-radius: 4px; }
+
+@media (max-width:992px) {
+  .max-height { height: auto; min-height: 60px; }
+}
