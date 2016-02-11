@@ -15,5 +15,4 @@ http://msg.meteor.com
 * To remove a post, update it without any text
 
 ### License
-
-Available under the GNU GENERAL PUBLIC LICENSE. See License.txt for more info.
+This project is licensed under the terms of the MIT license.
