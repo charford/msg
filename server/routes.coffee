@@ -1,4 +1,4 @@
-Router.route '/b/:board_id/tsv', where: 'server'
+Router.route '/b/:board_id.tsv', where: 'server'
   .get ->
     posts =
       mad: []
@@ -28,7 +28,7 @@ Router.route '/b/:board_id/tsv', where: 'server'
     @response.writeHead 200, 'Content-Disposition': 'attachment; filename=export.tsv'
     @response.end rows
 
-Router.route '/b/:board_id/txt', where: 'server'
+Router.route '/b/:board_id.txt', where: 'server'
   .get ->
     posts =
       mad: []
