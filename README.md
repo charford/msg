@@ -2,8 +2,6 @@
 
 A sprint retrospective app using meteor js.
 
-http://msg.meteor.com
-
 ### Usage
 
 * Click 'Create Board' button
