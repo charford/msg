@@ -13,7 +13,6 @@ agnito:autogrow
 mrt:jquery-ui-sortable
 mrt:session-amplify
 reywood:iron-router-ga
-standard-minifiers
 meteor-base
 mobile-experience
 mongo
@@ -29,3 +28,5 @@ spacebars
 check
 aldeed:autoform
 dsyko:jquery-ui-touch-punch
+standard-minifier-css
+standard-minifier-js
