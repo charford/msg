@@ -1,0 +1,17 @@
+<template name="footer">
+  <footer class="footer">
+    <p class="text-center">
+      <a href="https://github.com/charford/msg/issues/new" target="_tab">Report Issue</a>
+      {{#if exportLink}}
+      <span class="pull-right">
+        <a target="_tab" class="btn btn-xs btn-default" href="{{exportLink}}.txt">
+          <i class="fa fa-share-square-o"></i> TXT
+        </a>
+        <a target="_tab" class="btn btn-xs btn-default" href="{{exportLink}}.tsv">
+          <i class="fa fa-share-square-o"></i> TSV
+        </a>
+      </span>
+      {{/if}}
+    </p>
+  </footer>
+</template>
