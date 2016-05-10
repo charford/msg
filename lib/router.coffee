@@ -8,6 +8,9 @@ Router.route '/',
 Router.route '/b/:board_id',
   name: 'board'
   trackPageView: true
+  onBeforeAction: ->
+    Session.set 'current_board_id', @params.board_id
+    @next()
   waitOn: ->
     Session.set 'board_id', @params.board_id
     [
