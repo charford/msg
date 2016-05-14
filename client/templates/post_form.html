@@ -1,0 +1,12 @@
+<template name="post_form">
+  {{#autoForm collection="Posts" doc=this type="method-update" meteormethod="updatePost" id=_id }}
+  <div class="panel-body">
+    {{>afQuickField name="content" rows=rows}}
+  </div>
+  <div class="panel-footer">
+    <button type="submit" class="btn btn-success btn-xs save-post-btn">Save</button>
+    <button class="btn btn-default btn-xs cancel-post-btn">Cancel</button>
+    <button class="btn btn-danger btn-xs pull-right delete-post-btn"><span class="glyphicon glyphicon-trash"></span></button>
+  </div>
+  {{/autoForm}}
+</template>

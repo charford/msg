@@ -8,25 +8,6 @@ AutoForm.addHooks(null, hooksObject)
 
 Template.post.events
 
-  'click .delete-post-btn': (e,t)->
-    e.preventDefault()
-    doc =
-      $set: content: ''
-    Meteor.call 'updatePost', doc, @_id
-    currently_editing = SessionAmplify.get('currently_editing')
-    currently_editing.splice currently_editing.indexOf(@_id), 1
-    SessionAmplify.set 'currently_editing', currently_editing
-
-  'click .cancel-post-btn': (e,t)->
-    e.preventDefault()
-    if not @content
-      doc =
-        $set: content: @content
-      Meteor.call 'updatePost', doc, @_id
-    currently_editing = SessionAmplify.get('currently_editing')
-    currently_editing.splice currently_editing.indexOf(@_id), 1
-    SessionAmplify.set 'currently_editing', currently_editing
-
   'click p': (e,t)->
     currently_editing = SessionAmplify.get('currently_editing')
     if @user_id is SessionAmplify.get('current_user')
@@ -52,16 +33,7 @@ Template.post.helpers
   myPost: ->
     @user_id == SessionAmplify.get 'current_user'
 
-  rows: ->
-    post = Posts.findOne(
-      {_id: @_id}, {reactive: false}).content?.split('\n')?.length
-    if post
-      return post
-    return 1
-
 Template.post.rendered = ->
-
-  $('textarea').autogrow()
 
   $('.sortable').sortable
     start: (e,ui)->
