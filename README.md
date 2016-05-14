@@ -2,6 +2,8 @@
 
 A sprint retrospective app using meteor js.
 
+![MSG Screenshot](/private/screenshot.png)
+
 ### Usage
 
 * Click 'Create Board' button
