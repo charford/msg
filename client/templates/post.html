@@ -3,19 +3,10 @@
   <li class="{{#if notMyPost}}disable-sort-item{{/if}} post panel panel-{{panelStyle type}}">
     <div class="panel-heading handle">{{#if myPost}}<i class="pull-right glyphicon glyphicon-star" title="This post belongs to you."></i>{{/if}}</div>
     {{#if editMode}}
-    {{#autoForm collection="Posts" doc=this type="method-update" meteormethod="updatePost" id=_id }}
-    <div class="panel-body">
-      {{>afQuickField name="content" rows=rows}}
-    </div>
-    <div class="panel-footer">
-      <button type="submit" class="btn btn-success btn-xs save-post-btn">Save</button>
-      <button class="btn btn-default btn-xs cancel-post-btn">Cancel</button>
-      <button class="btn btn-danger btn-xs pull-right delete-post-btn"><span class="glyphicon glyphicon-trash"></span></button>
-    </div>
-    {{/autoForm}}
+      {{>post_form}}
     {{else}}
     <div class="panel-body">
-      <p>{{content}}</p>
+      <p>{{#emojione}}{{content}}{{/emojione}}</p>
     </div>
     {{/if}}
   </li>
