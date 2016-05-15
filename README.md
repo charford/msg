@@ -2,6 +2,8 @@
 
 A sprint retrospective app using meteor js.
 
+[msg.caseyharford.com](http://msg.caseyharford.com)
+
 ![MSG Screenshot](/private/screenshot.png)
 
 ### Usage
