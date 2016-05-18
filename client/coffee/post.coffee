@@ -34,7 +34,7 @@ Template.post.helpers
     @user_id == SessionAmplify.get 'current_user'
 
 Template.post.rendered = ->
-
+  Template.instance().$('[data-toggle="tooltip"]').tooltip()
   $('.sortable').sortable
     start: (e,ui)->
       ui.placeholder.height ui.item.height()
