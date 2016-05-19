@@ -2,6 +2,10 @@
 
 A sprint retrospective app using meteor js.
 
+[msg.caseyharford.com](http://msg.caseyharford.com)
+
+![MSG Screenshot](/private/screenshot.png)
+
 ### Usage
 
 * Click 'Create Board' button
@@ -11,6 +15,7 @@ A sprint retrospective app using meteor js.
 * Click existing posts to edit
 * You may only modify your own posts
 * To remove a post, update it without any text
+* Emoji support built in, see [http://emoji.codes/](http://emoji.codes/) for complete list of codes.
 
 ### License
 The MIT License (MIT)

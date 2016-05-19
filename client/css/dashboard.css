@@ -23,4 +23,15 @@ body { margin-top: 20px; }
 .footer p.text-center {
   margin: 0;
 }
+
+#footer_buttons {
+  position: absolute;
+  right: 5px;
+}
 .container-fluid.max-height { margin-bottom: 30px; }
+
+.ui-sortable-helper {
+  -ms-transform: rotate(3deg); /* IE 9 */
+  -webkit-transform: rotate(3deg); /* Chrome, Safari, Opera */
+  transform: rotate(3deg);
+}
