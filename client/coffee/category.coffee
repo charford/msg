@@ -11,8 +11,16 @@ Template.category.events
 
 Template.category.helpers
   posts: ->
-    Posts.find type: @.toString(),
-      sort: rank: 1
+    query =
+      $and: [
+        { board_id: Session.get('board_id') }
+        { type: @.toString() }
+        { $or: [
+          { user_id: SessionAmplify.get('current_user') }
+          { content: $exists: true }
+        ] }
+      ]
+    Posts.find query, sort: rank: 1
   title: ->
     @.charAt(0).toUpperCase() + @.slice(1)
   count: (type)->

@@ -20,5 +20,8 @@
     autoform:
       afFormGroup:
         label: false
+  votes:
+    type: [String]
+    optional: true
 @Boards.attachSchema @Schemas.Board
 @Posts.attachSchema @Schemas.Post

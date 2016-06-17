@@ -4,5 +4,13 @@ Meteor.startup ->
 Meteor.publish "board", (board_id)->
   Boards.find board_id
 
-Meteor.publish "posts", (board_id)->
-  Posts.find board_id: board_id
+Meteor.publish "posts", (board_id, user_id)->
+  query =
+    $and: [
+      { board_id: board_id }
+      { $or: [
+        { user_id: user_id }
+        { content: $exists: true }
+      ] }
+    ]
+  Posts.find query

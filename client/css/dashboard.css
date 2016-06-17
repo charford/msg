@@ -1,7 +1,10 @@
 html, body, .max-height { height: 100%; }
 body { margin-top: 20px; }
 .panel-heading h4 { display: inline !important; }
-.post .panel-heading i { right: -10px; top: -6px; }
+.post .panel-heading span.pull-right { margin-right: -10px; margin-top: -10px; }
+.post .panel-heading span.pull-left { margin-left: -10px; margin-top: -11px; }
+.post .panel-heading span.pull-left .btn-xs { font-size: 8px; }
+.post .panel-heading span.pull-left i.badge { font-size: 8px; }
 .post .panel-body { padding: 0; }
 .post textarea { border-radius: 0; resize: none; box-shadow: none; width: 100%; border: 0 !important; padding: 10px; padding-top: 7px; outline: none }
 .post textarea:focus { border: 0; box-shadow: none; }

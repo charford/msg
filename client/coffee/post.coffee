@@ -8,6 +8,16 @@ AutoForm.addHooks(null, hooksObject)
 
 Template.post.events
 
+  'click .upvote-post': (e,t)->
+    e.preventDefault()
+    t.$('.upvote-post').tooltip('hide')
+    doc =
+      $addToSet:
+        votes: SessionAmplify.get('current_user')
+    Meteor.call 'updatePost', doc, @_id, (err,res)->
+      if err
+        console.log(err)
+
   'click p': (e,t)->
     currently_editing = SessionAmplify.get('currently_editing')
     if @user_id is SessionAmplify.get('current_user')
@@ -16,6 +26,18 @@ Template.post.events
         SessionAmplify.set 'currently_editing', currently_editing
 
 Template.post.helpers
+
+  can_vote: ->
+    if @user_id == SessionAmplify.get 'current_user'
+      return false
+    if typeof @votes == 'undefined'
+      return true
+    return @votes.indexOf(SessionAmplify.get('current_user')) == -1
+
+  votes: ->
+    if @votes
+      return @votes.length
+    0
 
   displayPost: ->
     @content or @user_id == SessionAmplify.get 'current_user'

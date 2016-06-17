@@ -29,7 +29,6 @@ Template.post_form.helpers
     return 1
 
 Template.post_form.rendered =->
-
   $('textarea').autogrow()
 
   emojiStrategy =
