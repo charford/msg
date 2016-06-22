@@ -4,7 +4,7 @@
     <span class="pull-left">
       <span class="badge" data-toggle="tooltip" data-placement="top" title="Number of upvotes for this post.">{{votes}}</span>
       {{#if can_vote}}
-      <button class="btn btn-default btn-xs upvote-post"
+      <button class="btn btn-default btn-xs upvote-post{{#if voted}} active{{/if}}"
           data-toggle="tooltip"
           data-placement="top"
           title="Upvote this post.">

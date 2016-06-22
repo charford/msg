@@ -11,9 +11,10 @@ Template.post.events
   'click .upvote-post': (e,t)->
     e.preventDefault()
     t.$('.upvote-post').tooltip('hide')
-    doc =
-      $addToSet:
-        votes: SessionAmplify.get('current_user')
+    if@votes.indexOf(SessionAmplify.get('current_user')) > -1
+      doc = $pull: votes: SessionAmplify.get('current_user')
+    else
+      doc = $addToSet: votes: SessionAmplify.get('current_user')
     Meteor.call 'updatePost', doc, @_id, (err,res)->
       if err
         console.log(err)
@@ -27,12 +28,14 @@ Template.post.events
 
 Template.post.helpers
 
+  voted: ->
+    if typeof @votes == 'undefined'
+      return false
+    return @votes.indexOf(SessionAmplify.get('current_user')) > -1
   can_vote: ->
     if @user_id == SessionAmplify.get 'current_user'
       return false
-    if typeof @votes == 'undefined'
-      return true
-    return @votes.indexOf(SessionAmplify.get('current_user')) == -1
+    true
 
   votes: ->
     if @votes
