@@ -11,7 +11,7 @@ Template.post.events
   'click .upvote-post': (e,t)->
     e.preventDefault()
     t.$('.upvote-post').tooltip('hide')
-    if@votes.indexOf(SessionAmplify.get('current_user')) > -1
+    if typeof @votes != 'undefined' and @votes.indexOf(SessionAmplify.get('current_user')) > -1
       doc = $pull: votes: SessionAmplify.get('current_user')
     else
       doc = $addToSet: votes: SessionAmplify.get('current_user')
