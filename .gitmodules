@@ -1,0 +1,4 @@
+[submodule "packages/emojione"]
+	path = packages/emojione
+	url = https://github.com/charford/emojione.git
+	branch = add-title-attribute-for-non-sprite-png

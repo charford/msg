@@ -33,7 +33,7 @@ dsyko:jquery-ui-touch-punch@1.2.4
 ecmascript@0.4.5
 ecmascript-runtime@0.2.11
 ejson@1.0.12
-emojione:emojione@2.2.2
+emojione:emojione@2.2.3
 fastclick@1.0.12
 geojson-utils@1.0.9
 hot-code-push@1.0.4
