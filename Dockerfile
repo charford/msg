@@ -1,4 +1,4 @@
-FROM node:0.10.43-slim
+FROM node:4.4.7-slim
 RUN apt-get update && apt-get install --no-install-recommends make g++ python -y -q && apt-get clean
 ADD bundle /bundle
 WORKDIR /bundle
