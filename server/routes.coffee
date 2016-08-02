@@ -35,7 +35,7 @@ Router.route '/b/:board_id.txt', where: 'server'
       sad: []
       glad: []
     
-    Posts.find(board_id: @params.board_id).forEach (post)->
+    Posts.find({board_id: @params.board_id}, {sort: rank: 1}).forEach (post)->
       posts[post.type].push post
 
     rows = ""
@@ -43,8 +43,11 @@ Router.route '/b/:board_id.txt', where: 'server'
       row = type + "\n\n"
       if posts[type].length > 0
         for post in posts[type]
+          votes = 0
+          if post.votes?.length?
+            votes = '+' + post.votes.length
           if post.content
-            row += post.content + "\n"
+            row += "[" + votes + "] " + post.content + "\n"
         row += "\n"
       if row.length > 0
         rows += row
