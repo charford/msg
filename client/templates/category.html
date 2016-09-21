@@ -12,10 +12,12 @@
       </div> 
     </div>
     <ul id="{{.}}" class="list-unstyled sortable max-height">
+      {{#if posts}}
       {{#each posts}}
         {{>post}}
       {{/each}}
       <li class="last-item-spacer"></li>
+      {{/if}}
     </ul>
   </div>
 </template>

@@ -66,12 +66,13 @@ Template.post.rendered = ->
     placeholder: 'sortablePlaceholder'
     connectWith: '.sortable'
     cancel: '.disable-sort-item'
+    items: 'li.post'
     handle: '.handle'
     cursor: 'move'
     update: (e)->
       posts = []
       type = $(this).attr('id')
-      $(this).find('li').each ->
+      $(this).find('li.post').each ->
         posts.push
           post_id: Blaze.getData(this)._id
           rank: $(this).index()

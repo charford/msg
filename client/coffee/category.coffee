@@ -20,7 +20,10 @@ Template.category.helpers
           { content: $exists: true }
         ] }
       ]
-    Posts.find query, sort: rank: 1
+    posts = Posts.find query, sort: rank: 1
+    if posts.count() > 0
+      return posts
+    false
   title: ->
     @.charAt(0).toUpperCase() + @.slice(1)
   count: (type)->
