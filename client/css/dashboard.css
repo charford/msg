@@ -38,3 +38,7 @@ body { margin-top: 20px; }
   -webkit-transform: rotate(3deg); /* Chrome, Safari, Opera */
   transform: rotate(3deg);
 }
+
+.last-item-spacer {
+  height: 40px;
+}
